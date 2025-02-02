@@ -36,7 +36,6 @@ class App extends Component {
       const response = await axios.get(URL);
       this.setState(
         prevState => (
-          console.log('Empty images: ', prevState.images),
           console.log('Hits: ', response.data.hits),
           {
             images: [...prevState.images, ...response.data.hits],
