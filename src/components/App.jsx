@@ -34,15 +34,11 @@ class App extends Component {
 
     try {
       const response = await axios.get(URL);
-      this.setState(
-        prevState => (
-          console.log('Hits: ', response.data.hits),
-          {
-            images: [...prevState.images, ...response.data.hits],
-            isLoading: false
-          }
-        )
-      );
+      console.log('Hits: ', response.data.hits);
+          this.setState(prevState => ({
+              images: [...prevState.images, ...response.data.hits],
+              isLoading: false,
+          }));
     } catch (error) {
       console.error('Error at fetch: ', error);
       this.setState({ isLoading: false });
